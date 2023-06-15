@@ -1,17 +1,8 @@
-//import { Prisma } from '@prisma/client';
 import { Prisma } from '@prisma/client';
 import prisma from '../config/database.js';
 
 async function getAll() {
   return prisma.user.findMany();
-}
-
-async function findSessionByToken(token: string) {
-  return await prisma.session.findFirst({
-    where: {
-      token: token,
-    },
-  });  
 }
 
 async function findById(id: number) {
@@ -45,17 +36,9 @@ async function findUserByEmail(email: string) {
 	});
 }
 
-async function createSession( data: Prisma.SessionUncheckedCreateInput ) {
-  await prisma.session.create({
-    data,
-  });
-}
-
 export default {
   getAll,
-  findSessionByToken,
   findById,
   createUser,
-  findUserByEmail,
-  createSession
+  findUserByEmail
 };

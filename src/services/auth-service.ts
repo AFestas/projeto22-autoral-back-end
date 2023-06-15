@@ -1,4 +1,5 @@
 import userRepositories from '../repositories/user-repository.js';
+import sessionRepositories from '../repositories/session-repository.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
@@ -13,7 +14,7 @@ async function signin( email: string, password: string) {
   const userId = user.id  
 
   const token = jwt.sign({ userId }, process.env.JWT_SECRET);
-  await userRepositories.createSession({
+  await sessionRepositories.createSession({
     token,
     userId,
   });

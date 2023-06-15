@@ -6,8 +6,8 @@ import { createUserSchema } from '../schema/auth-schemas.js'
 const userRoutes = Router();
 
 userRoutes
-    .post('/', validateSchema(createUserSchema), usersPost)
-    .get('/', getAllUsers)
+    .post('/signup', validateSchema(createUserSchema), usersPost)
+    .get('/all', getAllUsers)
     
 
 export { userRoutes };
