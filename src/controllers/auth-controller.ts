@@ -1,7 +1,6 @@
-import { Request, Response } from "express";
-import httpStatus from "http-status";
-import authService from "../services/auth-service.js";
-
+import { Request, Response } from 'express';
+import httpStatus from 'http-status';
+import authService from '../services/auth-service.js';
 
 export async function singIn(req: Request, res: Response) {
   const { email, password } = req.body;

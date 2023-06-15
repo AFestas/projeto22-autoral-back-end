@@ -51,11 +51,11 @@ async function createSession( data: Prisma.SessionUncheckedCreateInput ) {
   });
 }
 
-  export default {
-    getAll,
-    findSessionByToken,
-    findById,
-    createUser,
-    findUserByEmail,
-    createSession
-  };
+export default {
+  getAll,
+  findSessionByToken,
+  findById,
+  createUser,
+  findUserByEmail,
+  createSession
+};
