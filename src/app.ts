@@ -8,5 +8,5 @@ app
     .use(cors())
     .use(router);
 
-const port = 5000;
+const port = 4000;
 app.listen(port, () => console.log(`Server running in port: ${port}`));
