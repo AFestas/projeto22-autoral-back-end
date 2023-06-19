@@ -5,7 +5,7 @@ import { authValidation } from '../middlewares/auth-middleware.js';
 const themeRoutes = Router();
 
 themeRoutes
-    .get('/', getAll)
+    .get('/all', getAll)
     
 
 export { themeRoutes };

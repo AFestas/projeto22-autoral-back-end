@@ -11,15 +11,6 @@ async function findById(id: number) {
       id: id,
     },
   });
-}  
-
-async function createUserTest(email: string, hashedPassword: string) {
-  return prisma.user.create({
-    data: { 
-      email,  
-      password: hashedPassword
-    },
-  });
 }
 
 async function createUser(data: Prisma.UserUncheckedCreateInput) {

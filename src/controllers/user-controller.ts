@@ -12,13 +12,13 @@ export async function getAllUsers(req: Request, res: Response) {
 }
 
 export async function usersPost(req: Request, res: Response) {
-  const { email, password } = req.body;
+  const { email, password, name, cpf, birthday, phone, street, city, complement, state, number, cep, avatar } = req.body;
 
   try {
-    await userService.createUser( {email, password} );
+    await userService.createUser( {email, password, name, cpf, birthday, phone, street, city, complement, state, number, cep, avatar} );
     return res.status(httpStatus.CREATED).send('User created successfully');
 
   } catch (error) {      
-    return res.status(httpStatus.BAD_REQUEST).send(error.meta);
+    return res.status(httpStatus.BAD_REQUEST).send(error);
   }
 }

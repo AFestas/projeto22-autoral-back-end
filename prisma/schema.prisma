@@ -11,22 +11,22 @@ model User {
   id          Int      @id @default(autoincrement())
   email       String   @unique @db.VarChar(255)
   password    String   @db.VarChar(255)
-  //name        String   @db.VarChar(255)
-	//cpf         String   @db.VarChar(11)
-	//birthday    DateTime
-	//phone       String   @db.VarChar(12)
-	//street      String   @db.VarChar(100)
-	//city        String   @db.VarChar(50)
-	//complement  String
-	//state       String   @db.VarChar(2)
-	//number      Int
-	//cep         String   @db.VarChar(8)
+  name        String   @db.VarChar(255)
+	cpf         String   @db.VarChar(11)
+	birthday    DateTime
+	phone       String   @db.VarChar(12)
+	street      String   @db.VarChar(100)
+	city        String   @db.VarChar(50)
+	complement  String
+	state       String   @db.VarChar(2)
+	number      Int
+	cep         String   @db.VarChar(8)
+  status      String   @db.VarChar(3) @default("use")
+  avatar      String
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt 
   Session     Session[] 
   Requests    Requests[]
-  Depositions Depositions[]
-  Gallery     Gallery[]
 }
 
 model Session {
@@ -39,24 +39,23 @@ model Session {
 }
 
 model Theme {
-  id           Int      @id @default(autoincrement())
+  id          Int       @id @default(autoincrement())
   title       String    @db.VarChar(100)
-	description String
+	category    String    @db.VarChar(100)
 	photo       String
-	price       Int
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
-  Requests  Requests[]
+  Requests    Requests[]
 }
 
 model ServiceType {
-  id           Int      @id @default(autoincrement())
+  id          Int       @id @default(autoincrement())
   title       String    @db.VarChar(100)
 	description String
-	price       Int
+	photo       String
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
-  Requests  Requests[]
+  Requests    Requests[]
 }
 
 model Requests {
@@ -76,19 +75,18 @@ model Requests {
 
 model Depositions {
   id          Int       @id @default(autoincrement())
+  name        String    @db.VarChar(100)
 	depositions String
 	photo       String
-  userId      Int
-  User        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt  
 }
 
 model Gallery {
   id          Int       @id @default(autoincrement())
+  name        String    @db.VarChar(100)
+  description String
 	photo       String
-  userId      Int
-  User        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt  
 }

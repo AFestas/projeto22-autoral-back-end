@@ -5,7 +5,7 @@ import { authValidation } from '../middlewares/auth-middleware.js';
 const serviceTypeRoutes = Router();
 
 serviceTypeRoutes
-    .get('/', getAll)
+    .get('/all', getAll)
     
 
 export { serviceTypeRoutes };

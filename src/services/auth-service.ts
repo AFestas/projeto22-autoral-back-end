@@ -19,7 +19,7 @@ async function signin( email: string, password: string) {
     userId,
   });
 
-  return token;
+  return {token, user};
 }
 
 export default {

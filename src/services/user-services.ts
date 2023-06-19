@@ -6,15 +6,26 @@ async function getAllUser() {
     return await userRepositories.getAll();
 }
 
-export async function createUser({ email, password }: CreateUserParams): Promise<User> {
+export async function createUser({ email, password, name, cpf, birthday, phone, street, city, complement, state, number, cep, avatar }: CreateUserParams): Promise<User> {
   const hashedPassword = await bcrypt.hash(password, 12);
   return userRepositories.createUser({
     email,
     password: hashedPassword,
+    name,
+    cpf,
+    birthday,
+    phone,
+    street,
+    city,
+    complement,
+    state,
+    number,
+    cep,
+    avatar,
   });
 }
 
-export type CreateUserParams = Pick<User, 'email' | 'password'>;
+export type CreateUserParams = Pick<User, 'email' | 'password' | 'name' | 'cpf' | 'birthday' | 'phone' | 'street' | 'city' | 'complement' | 'state' | 'number' | 'cep' | 'avatar'>;
 
 export default {
   getAllUser,
