@@ -1,4 +1,4 @@
-import chalk from 'chalk';
+//import chalk from 'chalk';
 import { Request, Response, NextFunction } from 'express';
 
 export function validateSchema(schema: any) {
@@ -7,7 +7,7 @@ export function validateSchema(schema: any) {
     if (error) {
       return res.status(422).send(error.details.map((detail: any) => detail.message));
     }
-    console.log(chalk.blue(`Passed Schema Validation`));
+    //console.log(chalk.blue(`Passed Schema Validation`));
     next();
   };
 }

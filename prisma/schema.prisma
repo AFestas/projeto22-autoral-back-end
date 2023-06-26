@@ -63,8 +63,6 @@ model Requests {
   userId        Int
   User          User         @relation(fields: [userId], references: [id], onDelete: Cascade)
 	description   String
-	startDateTime DateTime
-	endDateTime   DateTime
 	themeId       Int
   Theme         Theme        @relation(fields: [themeId], references: [id], onDelete: Cascade) 
 	serviceTypeId Int
@@ -75,7 +73,7 @@ model Requests {
 
 model Depositions {
   id          Int       @id @default(autoincrement())
-  name        String    @db.VarChar(100)
+ // name        String    @db.VarChar(100)
 	depositions String
 	photo       String
   createdAt   DateTime  @default(now())

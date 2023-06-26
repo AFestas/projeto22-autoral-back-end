@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import { getAll } from '../controllers/theme-controller.js';
-import { authValidation } from '../middlewares/auth-middleware.js';
+import { getAll } from '../controllers/theme-controller';
+import { authValidation } from '../middlewares/auth-middleware';
 
 const themeRoutes = Router();
 

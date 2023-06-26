@@ -1,5 +1,6 @@
+import { prisma } from '@/config';
 import { Prisma } from '@prisma/client';
-import prisma from '../config/database.js';
+//import prisma from './../config/database';
 
 async function getAll() {
   return prisma.user.findMany();

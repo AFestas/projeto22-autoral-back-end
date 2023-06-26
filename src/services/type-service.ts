@@ -1,7 +1,10 @@
-import typeServiceRepositories from '../repositories/typeService-repository.js';
+import typeServiceRepositories from './../repositories/typeService-repository';
 
 async function getAllTypeService() {
-    return await typeServiceRepositories.getAll();
+    const typeserviceAll = await typeServiceRepositories.getAll();
+    if (!typeserviceAll) throw new Error('Type service not found');
+  
+    return typeserviceAll
 }
 
 export default {

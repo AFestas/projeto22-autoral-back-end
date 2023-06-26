@@ -1,16 +1,12 @@
-import { User } from '@prisma/client';
-import depositionRepositories from '../repositories/deposition-repository.js';
+import depositionRepositories from './../repositories/deposition-repository';
 
 async function getAllDepositions() {
-    return await depositionRepositories.getAll();
-}
+  const depositionsAll = await depositionRepositories.getAll();
+  if (!depositionsAll) throw new Error('Depositions not found');
 
-async function getSomeDeposition() {
-  const someDepositions = await depositionRepositories.getAll();
-  return someDepositions.slice(0, 2);
+  return depositionsAll
 }
 
 export default {
-  getAllDepositions,
-  getSomeDeposition
+  getAllDepositions
 };

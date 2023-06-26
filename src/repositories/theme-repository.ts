@@ -1,4 +1,4 @@
-import prisma from '../config/database.js';
+import { prisma } from '@/config';
 
 async function getAll() {
   return prisma.theme.findMany();

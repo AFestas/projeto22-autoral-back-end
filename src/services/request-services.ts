@@ -1,17 +1,17 @@
 import { Requests } from '@prisma/client';
-import requestRepositories from '../repositories/request-repository.js';
-import bcrypt from 'bcrypt';
+import requestRepositories from './../repositories/request-repository';
 
 export async function postCreateRequest({userId, description, themeId, serviceTypeId}: CreateRequestParams): Promise<Requests> {
-  //const hashedPassword = await bcrypt.hash(password, 12);
-  return requestRepositories.createRequest({
+  const createRequest =  requestRepositories.createRequest({
     userId, 
-    description, 
-    startDateTime: "2023-06-18T18:19:35.897Z",
-    endDateTime: "2023-06-18T18:19:35.897Z",
+    description,
     themeId, 
     serviceTypeId
   });
+
+  if (!createRequest) throw new Error('Unable to register request');
+
+  return createRequest
 }
 
 export type CreateRequestParams = Pick<Requests, 'userId' | 'description' | 'themeId' | 'serviceTypeId'>;

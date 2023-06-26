@@ -1,7 +1,10 @@
-import galeryRepositories from '../repositories/galery-repository.js';
+import galeryRepositories from './../repositories/galery-repository';
 
 async function getAllGalery() {
-    return await galeryRepositories.getAll();
+  const galleryAll = await galeryRepositories.getAll();
+  if (!galleryAll) throw new Error('Gallery not found');
+
+  return galleryAll
 }
 
 export default {

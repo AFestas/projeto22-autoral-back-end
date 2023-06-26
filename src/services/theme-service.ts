@@ -1,9 +1,10 @@
-import { User } from '@prisma/client';
-import themeRepositories from '../repositories/theme-repository.js';
-import bcrypt from 'bcrypt';
+import themeRepositories from './../repositories/theme-repository';
 
 async function getAllTheme() {
-    return await themeRepositories.getAll();
+  const themeAll = await themeRepositories.getAll();
+  if (!themeAll) throw new Error('Theme not found');
+
+  return themeAll
 }
 
 export default {

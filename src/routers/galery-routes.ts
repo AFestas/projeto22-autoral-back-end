@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { getAllGalery } from '../controllers/galery-controller.js';
+import { getAllGalery } from '../controllers/galery-controller';
 
 const galeryRoutes = Router();
 

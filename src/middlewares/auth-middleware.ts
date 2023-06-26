@@ -1,11 +1,11 @@
 import { Request, Response, NextFunction } from 'express';
-import chalk from 'chalk';
+//import chalk from 'chalk';
 import * as jwt from 'jsonwebtoken';
 import httpStatus from 'http-status';
-import prisma from '../config/database.js';
+import { prisma } from '@/config';
 
 export async function authValidation(req: AuthenticatedRequest, res: Response, next: NextFunction) {  
-  console.log(chalk.blue(`Passed Authentication Route`));
+  //console.log(chalk.blue(`Passed Authentication Route`));
   const authHeader = req.header('Authorization');
   if (!authHeader) return res.status(httpStatus.UNAUTHORIZED).send('unauthorized authorization');
   
